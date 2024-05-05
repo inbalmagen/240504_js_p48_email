@@ -1,0 +1,39 @@
+The line 
+const atIndex = email.indexOf('@'); 
+in JavaScript assigns the index of the "@" symbol within the email string to the variableatIndex.
+
+Let's break down this line to understand it better:
+
+ 1.
+ email.indexOf('@'):
+
+The indexOf() method in JavaScript is used to find the index of a specified value (in this case, 
+the "@" symbol) within a string.
+
+It searches the email string for the first occurrence of "@" and returns the index of its first occurrence.
+ If the "@" symbol is not found, it returns -1.
+
+For example, if email is "user@example.com", email.indexOf('@') will return 4, 
+as "@" is located at the index 4 in the string.
+
+2.
+const atIndex = ...:
+
+This line declares a constant variable named atIndex.
+
+const is used to declare a constant variable, meaning its value cannot be reassigned 
+once it has been initialized.
+
+By assigning the result of email.indexOf('@') to atIndex, we store the index of the "@" symbol 
+in the email string in the variable atIndex.
+
+Example:
+Let's consider an example where email is "user@example.com":
+
+const email = "user@example.com";
+const atIndex = email.indexOf('@');
+console.log(atIndex); // Output: 4
+
+In this example, atIndex will be assigned the value 4, 
+as the "@" symbol is located at the index 4 within the email string. 
+This value can then be used in further processing or validation logic related to the email address.

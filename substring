@@ -1,0 +1,39 @@
+In the code snippet provided, two new variables localPart and domainPart are defined using the substring() method applied to the email string.
+
+ Let's break down each line:
+
+1.
+ const localPart = email.substring(0, atIndex);:
+
+ This line extracts the substring representing the local part of the email address.
+email.substring(0, atIndex) extracts characters from index 0 up to (but not including) the index represented by atIndex.
+
+The extracted substring includes all characters from the start of the email string up to (but not including) the "@" symbol.
+
+For example, if email is "user@example.com" and atIndex is 4 (representing the position of "@"), localPart will be "user".
+
+2.
+const domainPart = email.substring(atIndex + 1);:
+
+This line extracts the substring representing the domain part of the email address.
+
+email.substring(atIndex + 1) extracts characters from the index immediately after the "@" symbol up to the end of the email string.
+
+The extracted substring includes all characters from after the "@" symbol to the end of the email string.
+
+For example, if email is "user@example.com" and atIndex is 4, domainPart will be "example.com".
+
+Example:
+
+Consider the email string "user@example.com" and atIndex being 4:
+
+const email = "user@example.com";
+const atIndex = email.indexOf('@');
+
+const localPart = email.substring(0, atIndex);
+const domainPart = email.substring(atIndex + 1);
+
+console.log(localPart);   // Output: "user"
+console.log(domainPart);  // Output: "example.com"
+
+In this example, localPart contains the substring "user", representing the local part of the email address, and domainPart contains the substring "example.com", representing the domain part of the email address. These substrings are extracted based on the position of the "@" symbol obtained using indexOf('@').

@@ -1,0 +1,46 @@
+The .split() method in JavaScript is used to divide a string into an ordered list of substrings,
+ puts these substrings into an array, and returns the array. 
+ 
+ The division is done by searching for a pattern; where the pattern is provided as the first parameter
+  in the method's call.
+
+Syntax
+
+string.split(separator, limit)
+
+separator (optional): Specifies the character, or the regular expression, to use for splitting the string. If omitted, the entire string is returned as the only element in the array.
+limit (optional): An integer that specifies the maximum number of splits, items after the split limit will not be included in the array.
+Usage Examples
+
+Example 1: Simple Split
+
+let text = "apple, banana, cherry";
+let fruits = text.split(", ");
+console.log(fruits);  // Output: ['apple', 'banana', 'cherry']
+In this example, the string "apple, banana, cherry" is split into an array of three elements using the
+ separator string ", ".
+
+Example 2: Split with Limit
+
+let text = "apple, banana, cherry";
+let fruits = text.split(", ", 2);
+console.log(fruits);  // Output: ['apple', 'banana']
+Here, the string is split similar to the first example, but the limit parameter is set to 2, 
+which means only the first two elements are included in the resulting array.
+
+Example 3: Omitting the Separator
+
+let text = "Hello World";
+let result = text.split();
+console.log(result);  // Output: ['Hello World']
+When the separator is omitted, the entire input string is returned as a single-element array.
+
+Example 4: Splitting with an Empty String Separator
+
+let text = "Hello";
+let characters = text.split('');
+console.log(characters);  // Output: ['H', 'e', 'l', 'l', 'o']
+By using an empty string as the separator, the string is split between each character.
+
+The .split() method is very useful in text processing, parsing data, and whenever a string needs
+ to be broken down into smaller parts based on a delimiter.

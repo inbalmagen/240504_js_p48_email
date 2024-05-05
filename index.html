@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        . כתוב תוכנית ב-ג'אווה סקריפט שמאמתת כתובת אימייל שהמשתמש מזין.
+         התוכנית שלך צריכה לבקש מהמשתמש להזין 
+         כתובת אימייל ולבדוק האם הכתובת אימייל שהוזנה חוקית לפי הקריטריונים הבאים:
+הכתובת אימייל חייבת להכיל בדיוק סימן "@" אחד.
+הסימן "@" לא יכול להיות התו הראשון או האחרון בכתובת האימייל.
+הכתובת אימייל חייבת להכיל לפחות נקודה אחת "." אחרי הסימן "@".
+התווים לפני ואחרי הסימן "@" לא יכולים להכיל רווחים.
+הכתובת אימייל חייבת להסתיים בדומיין ראשי תקף (למשל, ".com", ".org", ".net").
+בהתבסס על תוצאת האימות, התוכנית שלך צריכה להדפיס או "כתובת אימייל חוקית" או "כתובת אימייל לא חוקית".
+        */
+
+// Function to validate the email address
+function validateEmail(email) {
+    // Check for exactly one "@"
+    if (email.split('@').length - 1 !== 1) {
+        return false;
+    }
+
+    // Get the index of the "@" sign
+    const atIndex = email.indexOf('@');
+
+    // Check that "@" is not the first or last character
+    if (atIndex === 0 || atIndex === email.length - 1) {
+        return false;
+    }
+
+    // Split the email into parts before and after the "@"
+    const localPart = email.substring(0, atIndex);
+    const domainPart = email.substring(atIndex + 1);
+
+    // Check for spaces in local and domain parts
+    if (localPart.includes(' ') || domainPart.includes(' ')) {
+        return false;
+    }
+
+    // Check that domain part contains at least one "."
+    if (domainPart.indexOf('.') === -1) {
+        return false;
+    }
+
+    // Check that the dot in domain is not the first or last character
+    if (domainPart.startsWith('.') || domainPart.endsWith('.')) {
+        return false;
+    }
+
+    // Check if the domain ends with a valid primary domain
+    const validDomains = ['.com', '.org', '.net'];
+    const domainIsValid = validDomains.some(domain => email.endsWith(domain));
+    if (!domainIsValid) {
+        return false;
+    }
+
+    // If all checks pass
+    return true;
+}
+
+// Ask the user for an email address
+let userEmail = prompt("Please enter your email address:");
+
+// Validate the entered email address
+if (validateEmail(userEmail)) {
+    alert("Valid email address.");
+} else {
+    alert("Invalid email address.");
+}
+
+
+/*
+Explanation
+Checking the "@" Sign: First, the script ensures that there's exactly one "@" character in the email.
+Position of "@": It checks that "@" is neither the first nor the last character.
+Local and Domain Parts: It verifies there are no spaces before or after the "@".
+Dot Presence and Position: The script confirms that there is at least one dot in the domain part of the email, but not as the first or last character.
+Valid Primary Domains: Lastly, it checks whether the email ends with a valid primary domain like .com, .org, or .net.
+
+Running the Program
+To run this program, you would need to paste it into the JavaScript console of a web browser or include it within a <script> tag in an HTML document. It uses basic browser functions for interaction, ensuring it's user-friendly for basic validation tasks.
+
+*/
+    </script>
+</body>
+</html>

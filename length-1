@@ -1,0 +1,32 @@
+
+- 1: Subtracts 1 from the length to account for JavaScript indexing, where indexing starts from 0.
+
+
+In the expression email.split('@').length - 1, the - 1 is used to calculate the number of occurrences
+ of the "@" symbol in the email string. Let's break it down to understand why this operation is necessary:
+
+Splitting the String: email.split('@') takes the email string and splits it into an array of substrings
+ at each occurrence of the "@" character. For instance, if email is "user@example.com", 
+ the result of email.split('@') would be ["user", "example.com"].
+
+Calculating the Length: .length on the resulting array gives the number of elements in that array.
+ Continuing with the previous example, ["user", "example.com"].length would yield 2.
+
+Understanding - 1: The number of elements in the array resulting from the split is always one more than the
+ number of "@" characters in the original string. 
+ This is because splitting divides the string into parts that were separated by the "@" symbol:
+If there is one "@" in the string, the split results in two parts (before and after the "@").
+If there are two "@" symbols, the split results in three parts, and so on.
+
+Hence, to find out how many "@" characters are in the email, you subtract 1 from the array length. 
+If the original string contains exactly one "@", splitting it will result in an array of two elements 
+(length - 1 = 1).
+
+Logical Check: By checking if (email.split('@').length - 1 !== 1), the code is essentially confirming
+ whether there is exactly one "@" symbol in the email string. 
+ This is crucial for validating email addresses since a valid email should have exactly one "@" symbol:
+If the result of this check is true (i.e., the condition is met),
+ it means there is not exactly one "@", which is either zero or more than one "@" in the email address,
+  indicating it is invalid.
+This approach helps ensure that the format of the email address meets the basic criteria necessary for most
+ email validation scenarios, focusing on the structure regarding the "@" symbol's occurrence.
